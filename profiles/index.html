@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Google Auth</title>
+</head>
+<body>
+   <h1>Google Authentication Demo</h1>
+   <a href="http://localhost:8000/auth/google">Login</a>
+
+   <script>
+   	 const link = document.querySelector("a");
+
+   	 link.addEventListener("click", ()=> {
+   	 	fetch("http://localhost:8000/auth/google", {
+   	 		method: "get",
+   	 		credentials: "include"
+   	 	})
+   	 	.then(res => res.json())
+   	 	.then(data => {
+   	 		console.log(data)
+   	 	})
+   	 })
+   </script>
+</body>
+</html>
